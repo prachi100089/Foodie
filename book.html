@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foodie - Supper Delicious Restro in Town!</title>
+  <link rel="stylesheet" href="#">
+  <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background: url('https://source.unsplash.com/random/1600x900') no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  .header {
+    background-color: white;
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .dot {
+    color: red;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    padding: 5px 10px;
+  }
+  
+  .nav-link:hover {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+  }
+  
+  .btn {
+    background-color: white;
+    color: black;
+    padding: 5px 10px;
+    border: 2px solid black;
+    border-radius: 20px;
+  }
+  
+  .btn:hover {
+    background-color: black;
+    color: white;
+  }
+  
+  .cart,
+  .account {
+    font-size: 20px;
+  }
+  
+  main {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .form-container {
+    background: linear-gradient(to right, #a6c1ee, #fbc2eb);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  main h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.0em;
+    color: #555;
+  }
+
+  /* Form groups */
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  /* Labels */
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: black;
+  }
+
+  /* Input fields */
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #fff;
+    color: #333;
+  }
+
+  /* Submit button */
+  .form-group input[type="submit"] {
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+  }
+
+  .form-group input[type="submit"]:hover {
+    background-color: #357ABD;
+  }
+
+  .form-group input[type="submit"]:active {
+    background-color: #2D72D9;
+  }
+
+  /* Textarea */
+  .form-group textarea {
+    resize: vertical;
+  }
+
+  /* Select dropdown */
+  .form-group select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="#4a90e2" d="M2 0L0 2h4z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+  }
+
+  /* Container responsiveness */
+  @media (max-width: 768px) {
+    .container {
+      padding: 10px;
+    }
+
+    main h2 {
+      font-size: 1em;
+    }
+  }
+</style>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Foodie<span class="dot">.</span></h1>
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link">About Us</a></li>
+          <li class="nav-item"><a href="#menus" class="nav-link">Menu</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+          <li class="nav-item"><a href="book.html" class="nav-link btn">Book A Table</a></li>
+          <li class="nav-item"><a href="#cart" class="nav-link cart"><img width="24" height="24" src="https://img.icons8.com/pulsar-color/48/shopping-cart.png" alt="shopping-cart"/></a></li>
+          <li class="nav-item"><a href="#account" class="nav-link account"><img width="24" height="24" src="https://img.icons8.com/pulsar-color/48/guest-male.png" alt="guest-male"/></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="form-container">
+      <h2>Book A Table</h2>
+      <form action="#" method="post">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+        <div class="form-group">
+          <label for="time">Time</label>
+          <input type="time" id="time" name="time" required>
+        </div>
+        <div class="form-group">
+          <label for="guests">Number of Guests</label>
+          <select id="guests" name="guests" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="special-requests">Special Requests</label>
+          <textarea id="special-requests" name="special-requests" rows="4" placeholder="Any special requests or requirements?"></textarea>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Submit Booking">
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

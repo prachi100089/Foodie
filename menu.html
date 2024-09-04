@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Section</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Filter Section */
+        .filter {
+            background-color: #f0f0f0;
+            padding: 20px 0;
+        }
+
+        .filter-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .filter-button {
+            background: #9ae5e8;
+            border: none;
+            color: #000000;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 5px;
+            transition: background 0.3s ease;
+        }
+
+        .filter-button:hover {
+            background: #0cb2d7;
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 40px 0;
+        }
+
+        .menu .main-text {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .menu .main-text span {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .menu .main-text h2 {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .menu-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+            gap: 20px;
+            padding: 0 10px;
+        }
+
+        .menu-item {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            padding: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-image {
+            margin-bottom: 10px;
+        }
+
+        .menu-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .menu-content h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .menu-content p {
+            font-size: 1rem;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .menu-content .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff0000;
+    margin: 10px 0;
+}
+
+.add-to-cart {
+    background: transparent; /* Transparent background */
+    border: 2px solid #0e1937; /* Border color */
+    color: #0e1937; /* Text color */
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px; /* Optional: rounded corners */
+    cursor: pointer;
+    position: relative; /* Position for pseudo-element */
+     /* Hide overflow of pseudo-element */
+    transition: color 0.3s ease;
+}
+
+.add-to-cart::before {
+    content: ''; /* Empty content for pseudo-element */
+    position: absolute; /* Absolute positioning */
+    top: 0;
+    left: -100%; /* Start off-screen */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+ /* Background color */
+    transition: left 0.3s ease; /* Transition effect */
+}
+
+.add-to-cart:hover::before {
+    left: 0; /* Move to fill the button */
+}
+
+.add-to-cart:hover {
+    color: #f1a3a3; /* Text color on hover *//* Border color on hover */
+}
+
+        
+
+        @media (max-width: 1024px) {
+            .menu-gallery {
+                grid-template-columns: repeat(3, 1fr); /* 3 items per row for medium screens */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-gallery {
+                grid-template-columns: repeat(2, 1fr); /* 2 items per row for small screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .menu-gallery {
+                grid-template-columns: 1fr; /* 1 item per row for extra-small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Filter Section -->
+    <section id="filter" class="filter">
+        <div class="filter-buttons">
+            <button class="filter-button" data-filter="all">All</button>
+            <button class="filter-button" data-filter="appetizers">Starters</button>
+            <button class="filter-button" data-filter="main">Main Courses</button>
+            <button class="filter-button" data-filter="desserts">Desserts</button>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="main-text">
+            <span>Our Delicious Offerings</span>
+            <h2>Menu Highlights</h2>
+        </div>
+        <div class="container">
+            <div class="menu-gallery">
+                <div class="menu-item" data-category="appetizers">
+                    <div class="menu-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx71lt9WW1rJRAWF2NKZn7TyhhfKfNQnbYUA&s" alt="Dish 1">
+                    </div>
+                    <div class="menu-content">
+                        <h3>French fries</h3>
+                        <p>Crispy golden fries served with a side of ketchup.</p>
+                        <p class="price">₹159</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="appetizers">
+                    <div class="menu-image">
+                        <img src="https://www.viniscookbook.com/wp-content/uploads/2019/06/20190613_214607.jpg" alt="Dish 2">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Paneer Tikka</h3>
+                        <p>Grilled paneer cubes marinated in spicy yogurt and herbs.</p>
+                        <p class="price">₹199</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="main">
+                    <div class="menu-image">
+                        <img src="https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg" alt="Dish 3">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Pizza</h3>
+                        <p>Classic cheese pizza with a delicious tomato sauce and toppings of your choice.</p>
+                        <p class="price">₹399</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="main">
+                    <div class="menu-image">
+                        <img src="https://www.shutterstock.com/image-photo/burger-tomateoes-lettuce-pickles-on-600nw-2309539129.jpg" alt="Dish 4">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Burger</h3>
+                        <p>Juicy patty with lettuce, tomato, and cheese in a soft bun.</p>
+                        <p class="price">₹149</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="desserts">
+                    <div class="menu-image">
+                        <img src="https://c.ndtvimg.com/2023-02/egi0l8i_ice-cream_625x300_17_February_23.jpg?im=FaceCrop,algorithm=dnn,width=1200,height=675" alt="Dish 5">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Ice Cream</h3>
+                        <p>Creamy ice cream topped with chocolate syrup.</p>
+                        <p class="price">₹100</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="desserts">
+                    <div class="menu-image">
+                        <img src="https://www.tastingtable.com/img/gallery/we-need-to-stop-calling-alcohol-free-beverages-mocktails/intro-1696863302.jpg" alt="Dish 6">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Mocktails</h3>
+                        <p>Refreshing fruit-based beverages with a hint of mint.</p>
+                        <p class="price">₹120</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="appetizers">
+                    <div class="menu-image">
+                        <img src="https://images.slurrp.com/prod/rich_article/qhnnbko00xc.webp?impolicy=slurrp-20210601&width=880&height=500" alt="Dish 7">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Pani Puri</h3>
+                        <p>Crunchy puris with spicy tamarind water and tangy fillings.</p>
+                        <p class="price">₹80</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="appetizers">
+                    <div class="menu-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSani2jYtJyWDYI9C6wzJMJKhUqZrhSBrHeww&s" alt="Dish 8">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Manchurian</h3>
+                        <p>Crispy vegetable balls tossed in a tangy and spicy sauce.</p>
+                        <p class="price">₹150</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="main">
+                    <div class="menu-image">
+                        <img src="https://aartimadan.com/wp-content/uploads/2020/07/White-Sauce-Pasta.jpg" alt="Dish 9">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Pasta</h3>
+                        <p>Creamy pasta cooked with fresh vegetables and herbs.</p>
+                        <p class="price">₹250</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="main">
+                    <div class="menu-image">
+                        <img src="https://www.loveandoliveoil.com/wp-content/uploads/2015/03/soy-sauce-noodlesH2.jpg" alt="Dish 10">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Noodles</h3>
+                        <p>Stir-fried noodles with a mix of vegetables and a savory sauce.</p>
+                        <p class="price">₹200</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="desserts">
+                    <div class="menu-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6O8Dq37p_9fjIpBEFMwcPoD33MYln2e2Npg&s" alt="Dish 11">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Milk Shake</h3>
+                        <p>Thick and creamy milkshake with a rich flavor.</p>
+                        <p class="price">₹79</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="desserts">
+                    <div class="menu-image">
+                        <img src="https://t4.ftcdn.net/jpg/01/53/66/45/360_F_153664577_gzalhQomv1V2eaDkEmjnTadRjGNTLzur.jpg" alt="Dish 12">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Cone IceCream</h3>
+                        <p>Classic ice cream cone with a crunchy waffle base.</p>
+                        <p class="price">₹50</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-button');
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+
+                menuItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

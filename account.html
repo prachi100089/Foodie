@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .body-account {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container-account {
+            display: flex;
+            max-width: 900px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 20px;
+        }
+
+        .left-column {
+            width: 200px;
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 112vh;
+        }
+
+        .left-column button {
+            background-color: #34495e;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 4px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px; 
+        }
+
+        .left-column button i {
+            margin-right: 5px;
+        }
+
+        .left-column button:last-child {
+            margin-bottom: 0;
+        }
+
+        .left-column button:hover {
+            background-color: #2c3e50;
+        }
+
+        .right-column {
+            flex: 1;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        .section {
+            display: none;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        form button {
+            padding: 12px 24px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #2980b9;
+        }
+
+        @media (max-width: 768px) {
+            .container-account {
+                flex-direction: column;
+                box-shadow: none;
+                border-radius: 0;
+                margin: 10px;
+            }
+
+            .left-column {
+                width: 100%;
+                padding: 20px;
+                align-items: center;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .right-column {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .section {
+                border-radius: 0;
+                box-shadow: none;
+                margin-bottom: 10px;
+            }
+
+            form {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-account">
+    <div class="left-column">
+        <button onclick="showSection('profile')"><i class="fas fa-user-circle"></i> My Profile</button>
+        <button onclick="showSection('orders')"><i class="fas fa-shopping-cart"></i> Orders</button>
+        <button onclick="showSection('offers')"><i class="fas fa-gift"></i> Offers</button>
+        <button onclick="logout()">
+            <i class="fas fa-sign-out-alt" style="font-size: 1.5rem;"></i>
+            <span>Logout</span>
+        </button>
+    </div>
+
+    <div class="right-column">
+        <div id="profile" class="section active">
+            <h2>My Profile</h2>
+            <form id="profileForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="John Doe" disabled><br>
+                
+                <label for="gender">Gender:</label>
+                <input type="text" id="gender" name="gender" value="Male" disabled><br>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="john.doe@example.com" disabled><br>
+                
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" value="123-456-7890" disabled><br>
+                
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="4" cols="30" disabled>123 Main St, Anytown, USA</textarea><br>
+                
+                <button type="button" onclick="enableEdit()">Edit Address</button>
+            </form>
+        </div>
+
+        <div id="orders" class="section">
+            <h2>Orders</h2>
+            <p>No orders yet.</p>
+        </div>
+        
+        <div id="offers" class="section">
+            <h2>Offers</h2>
+            <p>50% off on your first purchase!</p>
+            <p>Buy one get one free on select items!</p>
+            <p>Free shipping on orders over $50!</p>
+        </div>
+        
+        <div id="newAddress" class="section">
+            <h2>Add New Address</h2>
+            <form id="newAddressForm">
+                <label for="newAddress">New Address:</label>
+                <textarea id="newAddress" name="newAddress" rows="4" cols="30"></textarea><br>
+                
+                <button type="button" onclick="saveNewAddress()">Save Address</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showSection(sectionId) {
+        var sections = document.getElementsByClassName('section');
+        for (var i = 0; i < sections.length; i++) {
+            sections[i].classList.remove('active');
+        }
+        
+        document.getElementById(sectionId).classList.add('active');
+    }
+
+    function enableEdit() {
+        var form = document.getElementById('profileForm');
+        var inputs = form.getElementsByTagName('input');
+        var textarea = form.getElementsByTagName('textarea');
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].disabled = false;
+        }
+        textarea[0].disabled = false;
+        form.querySelector('button').innerText = 'Save Changes';
+        form.querySelector('button').setAttribute('onclick', 'saveProfileChanges()');
+    }
+
+    function saveProfileChanges() {
+        var form = document.getElementById('profileForm');
+        var inputs = form.getElementsByTagName('input');
+        var textarea = form.getElementsByTagName('textarea');
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].disabled = true;
+        }
+        textarea[0].disabled = true;
+        form.querySelector('button').innerText = 'Edit Address';
+        form.querySelector('button').setAttribute('onclick', 'enableEdit()');
+        alert('Changes saved successfully!');
+    }
+
+    function saveNewAddress() {
+        var newAddress = document.getElementById('newAddress').value;
+        alert('New address saved successfully: ' + newAddress);
+        document.getElementById('newAddressForm').reset();
+    }
+
+    function logout() {
+    if (confirm("Are you sure you want to log out?")) {
+        window.location.href = 'login.html';
+    }
+}
+</script>
+</body>
+</html>
