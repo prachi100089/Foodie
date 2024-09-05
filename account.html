@@ -161,10 +161,31 @@
                 max-width: 100%;
             }
         }
+
+        .back-to-home {
+    margin-top: 20px; /* Adjust margin as needed */
+    text-align: right; /* Center the button */
+}
+
+.back-home-button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Change color as needed */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.back-home-button:hover {
+    background-color: #45a049; /* Hover color */
+}
     </style>
 </head>
 <body>
-
+    <div class="back-to-home">
+        <button onclick="window.location.href='index.html'" class="back-home-button">Back</button>
+    </div>
 <div class="container-account">
     <div class="left-column">
         <button onclick="showSection('profile')"><i class="fas fa-user-circle"></i> My Profile</button>
