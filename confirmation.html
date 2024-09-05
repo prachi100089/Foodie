@@ -1,0 +1,61 @@
+<!-- confirmation.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmed</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #333;
+        }
+        .confirmation {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .confirmation .tick {
+            font-size: 50px;
+            color: #4CAF50; /* Green color for the tick */
+        }
+        .confirmation h2 {
+            margin: 20px 0 10px;
+            font-size: 24px;
+        }
+        .confirmation p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        .confirmation .redirect-message {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation">
+        <div class="tick">✔️</div>
+        <h2>Table is Booked!</h2>
+        <p>Your booking has been confirmed successfully.</p>
+        <p class="redirect-message">Please wait, you will be redirected back to the home page.</p>
+    </div>
+
+    <!-- JavaScript to redirect back after 10 seconds -->
+    <script>
+        setTimeout(function() {
+            window.location.href = "index.html"; // Redirect back to the booking page (home page)
+        }, 10000); // 10000 milliseconds = 10 seconds
+    </script>
+</body>
+</html>
