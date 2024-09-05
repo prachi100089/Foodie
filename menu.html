@@ -168,6 +168,25 @@
                 grid-template-columns: 1fr; /* 1 item per row for extra-small screens */
             }
         }
+        .back-to-home {
+    margin-top: 20px; /* Adjust margin as needed */
+    text-align: right; /* Center the button */
+}
+
+.back-home-button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Change color as needed */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.back-home-button:hover {
+    background-color: #45a049; /* Hover color */
+}
+
     </style>
 </head>
 <body>
@@ -178,6 +197,9 @@
             <button class="filter-button" data-filter="appetizers">Starters</button>
             <button class="filter-button" data-filter="main">Main Courses</button>
             <button class="filter-button" data-filter="desserts">Desserts</button>
+        </div>
+        <div class="back-to-home">
+            <button onclick="window.location.href='index.html'" class="back-home-button">Back</button>
         </div>
     </section>
 
